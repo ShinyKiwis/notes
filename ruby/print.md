@@ -52,6 +52,23 @@ puts fruits
 "mangos"
 ```
 
+### Differences between `%Q{}` and `%q{}`
+- `%Q{}`: Interpolated String (default)
+- `%q{}`: Non-interpolated String (except for `\\`, `\[`, and `\]`)
 
+```ruby
+puts %Q{one\ntwo\n#{ 1 + 2 }}
+puts '-' * 10
+puts %q{one\ntwo\n#{ 1 + 2 }}
+```
+
+*Results:*
+```
+one
+two
+3
+----------
+onetwo#{ 1 + 2 }
+```
 
 
