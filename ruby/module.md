@@ -181,3 +181,87 @@ So what happens if that method allow arguments ?
 - Called with specific arguments—`super(a,b,c)`—super sends exactly those arguments. 
 
 ## Another big question, what happen when method lookup failed ?
+### The `method_missing` method
+This method is provided by `Kernel` module. It is executed whenever an object receives a messages that it doesn't know how to respond ( That is the method that doesn't match a method anywhere in the object's method-lookup path ).
+
+```ruby
+o = Object.new 
+o.unknown
+```
+
+*Results:*
+```
+/tmp/mdeval//modulemd_187_190.rb:2:in `<main>': undefined method `unknown' for #<Object:0x00007f0788e83e88> (NoMethodError)
+
+o.unknown
+ ^^^^^^^^
+```
+
+It’s easy to intercept calls to missing methods. You override method_missing, either on a singleton basis for the object you’re calling the method on, or in the object’s class or one of that class’s ancestors:
+
+```ruby
+o = Object.new 
+def o.method_missing(m, *args)
+  puts "You can't call #{m} on this object."
+end
+o.unnkown
+
+```
+
+**One thing to remember, the first argument or the name of the method is in the form of a symbol object.** 
+
+*Results:* `You can't call unnkown on this object.`
+
+### Combining `method_missing` and `super`
+```ruby
+class Student
+  def method_missing(m, *args)
+    if m.to_s.start_with?("grade_for")
+      puts "You got an A in #{m.to_s.split("_").last.capitalize}!"
+    else 
+      super
+    end
+  end
+end
+
+s = Student.new
+s.grade_for_English
+s.what?
+
+```
+
+*Results:*
+```
+/tmp/mdeval//modulemd_216_231.rb:6:in `method_missing': undefined method `what?' for #<Student:0x00007ff1d166b000> (NoMethodError)
+	from /tmp/mdeval//modulemd_216_231.rb:13:in `<main>'
+You got an A in English!
+```
+
+## Class/module design and naming
+### Mix-ins and/or inheritance
+Module mix-ins are closely related to class inheritance. In both cases, one entity (class or module) is establishing a close connection with another by becoming neighbors on a method-lookup path.
+
+There is no single rule or formula always result in right design for this problem mix-ins or inheritance. But it's useful to keep a couple of considerations in mind when we're making class-versus-module decisions:
+1. Modules don't have instances.
+2. A class can have only one superclass, but it can mix in as many modules as it wants.
+
+Another important consideration in class/module design is the nesting of modules and/or classes inside each other.
+
+### Nesting modules and classes 
+We can nest a class definition inside a module definition like this:
+```ruby
+module Tools 
+  class Hammer 
+  end
+end
+
+```
+
+and access it with:
+```ruby
+h = Tools::Hammer.new
+```
+Nested module/class chains like `Tools::Hammer` are sometimes used to create separate namespaces for classes, modules, and methods. This technique can help if two classes have a similar name but aren’t the same class.
+
+For example:
+We can have a `Tools::Hammer` class and also a `Piano::Hammer` class and they won't conflict since they are nested in its own namespace (`Tools` in one case and `Piano` in another case).
