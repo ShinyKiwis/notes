@@ -246,3 +246,13 @@ p x - y
 [1, 2, 4]
 [4]
 ```
+
+## Range 
+> Read more at [Range from ruby docs](https://ruby-doc.org/core-2.5.1/Range.html) 
+
+To generate an array with numbers in range we can use `to_a`!
+```ruby
+p (2..5).to_a
+```
+
+*Results:* `[2, 3, 4, 5]`

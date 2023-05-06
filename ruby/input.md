@@ -74,4 +74,3 @@ txt.close
 - `write('stuff')`: Write `'stuff'` to the file 
 - `seek(0)`: Move the read/write location to the beginning of the file.
 - `File.exist?(filename)`: Check if a file exist or not
-
