@@ -1,5 +1,5 @@
 # Errors 
-## permission denied 
+## permission denied (security issue)
 If you got something permisison denied at /var/run/docker.sock, to solve this run following program! 
 
 ```bash 
