@@ -32,16 +32,20 @@ Space Complexity: **O(n)**
 
  For example:
  ```bash
- "bat", "tab"
+"bat", "tab"
  A single array of 26 characters will be the same:
  1 - b 
  1 - a 
  1 - t
- ``` 
-
- We should be flexible when using hash data structure.
+ ```
+We should be flexible when using hash data structure.
 
 ### 217 
+
+### 238 
+> https://leetcode.com/problems/product-of-array-except-self/
+
+
 ### 242 
 >https://leetcode.com/problems/valid-anagram/
 
@@ -60,9 +64,36 @@ Sort the string to have same order and compare it with `==` operator
 Space Complexity: **O(1)** - Depends on the sort algorithm
 
 Time Complexity: **O(nlogn)** - Depends on the sort algorithm
+
+### 347
+> https://leetcode.com/problems/top-k-frequent-elements/
+
+**Solution 1**
+
+Using a hash map to count the frequency of numbers, extract them into an array and sort it based on the value, then create a new array containing only the top `k` numbers using the `key` only. Finally return a slice of that array. 
+
+Although this approach pass all the testcases, but it is not efficient!
+
+**Solution 2** 
+
+Again using hash map to count the frequency of numbers, then instead of sorting the keys basing on value, we will use **max heap** , to pick only k elements. 
+
+Time Complexity: **O(klogn)** 
+
+**Solution 3** 
+
+Again using hash map for same purpose, then using something like bucket sort, the indices will be the frequency of the number appeared, and the values is the list of numbers have that frequency. 
+
+Simply iterate through it and get top `k` values 
+
+Time Complexity: **O(n)** 
+
 ## Notes
 **C** 
 - Compare 2 arrays with stringify
+
+**M**
+- Max Heap
 
 **H** 
 - Hash Set 
