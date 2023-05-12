@@ -42,9 +42,52 @@ We should be flexible when using hash data structure.
 
 ### 217 
 
+### 226 
+> https://leetcode.com/problems/invert-binary-tree/
+
+This problem is quite easy, review how to invert a binary tree. 
+
+
 ### 238 
 > https://leetcode.com/problems/product-of-array-except-self/
 
+**Solution 1** 
+
+We can calculate all suffix and prefix values before starting to calculate the result output. Let's have an example. 
+
+```
+nums = [1,2,3,4]
+
+=> prefix = [1,2,6,24]
+prefix[0] = nums[0] 
+prefix[1] = prefix[0] * nums[1]
+prefix[2] = prefix[1] * nums[2]
+and so on 
+
+=> suffix = [24,24,12,4]
+suffix[3] = nums[3]
+suffix[2] = suffix[3] * nums[2]
+suffix[1] = suffix[2] * nums[1] 
+and so on 
+
+So at the end the result will be 
+if the index is 0 => prefix of first number will be 1 
+if the index is nums.length -1 => suffix of last number will be 1 
+
+value = prefix[i-1] * suffix[i+1]
+```
+
+Time Complexity: **O(n)**
+
+Space Complexity: **O(n)** 
+
+**Solution 2** 
+
+Instead of storing the number of prefix and suffix in 2 differents array, we store it in the ouput array. This is harder to imagine to be honest.
+
+Time Complexity: **O(n)**
+
+Space Complexity: **O(1)**, We dont' count the output array
 
 ### 242 
 >https://leetcode.com/problems/valid-anagram/
