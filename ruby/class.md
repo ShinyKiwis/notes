@@ -249,13 +249,13 @@ end
 
 ``&``: is an abbreviated way of iterating over each of the elements in the tickets array, it is often used with the map method, iterating over each element in an array, hash, or range and applying a method: 
 ```ruby 
-puts ["havoc", "test"].map(&:capitalize)
+puts ["havoc", "tests"].map(&:capitalize)
 ```
 
 *Results:*
 ```
 Havoc
-Test
+Tests
 ```
 
 The method `most_expensive` is defined directly on the class object Ticket, in singleton-method style. A singleton method defined on a class object is commonly referred to as a class method of the class on which it’s defined. The idea of a class method is that you send a message to the object that’s the class rather than to one of the class’s instances. 
