@@ -1,9 +1,13 @@
-# Binary Search Tree 
-## Definition 
-A binary search tree (BST) is a data structure used for organizing a collection of elements in a way that allows for efficient search, insertion, and deletion operations. A BST is a binary tree where each node has at most two children (left and right), and the value of each node is greater than or equal to all the values in its left subtree, and less than or equal to all the values in its right subtree.
+# Breadth First Search (BFS AKA Level Order Traversal)
+## Definition
+Instead of going until we counldn't and backtracking like DFS, we will go layer by layer of a tree (we are not talking about graph yet!)
 
-This ordering property of a BST ensures that elements can be efficiently located and retrieved by performing a binary search on the tree.
-## Implementation
+That is the idea of **Breadth First Search**
+
+Time complexity: **O(n)** 
+## Tree Traversal
+Unlike DFS, we shouldn't use recursion for implementing BFS. In order to remember the children of node, from which we will travel them before processing to next layer, we use a data structure called **queue**.
+
 ```ruby
 class TreeNode
   attr_accessor :left, :right, :value
@@ -62,6 +66,25 @@ class BST
     root
   end
 
+  def BFS(root)
+    return unless root
+
+    queue = Queue.new 
+    queue.push(root)
+    level = 0 
+    while queue.size > 0 
+        puts "Level: #{level}"
+        for i in 0..queue.size-1 
+            curr = queue.pop
+            puts curr
+            queue.push(curr.left) if curr.left
+            queue.push(curr.right) if curr.right
+        end
+        level += 1
+    end
+  end
+
+
   def search(root, target)
     return false unless root
 
@@ -81,13 +104,22 @@ bst_tree.insert(bst_tree.root, 6)
 bst_tree.insert(bst_tree.root, 2)
 bst_tree.insert(bst_tree.root, 0)
 bst_tree.insert(bst_tree.root, 1)
-bst_tree.remove(bst_tree.root, 2)
-puts bst_tree.min_value_node(bst_tree.root).value
-puts bst_tree.search(bst_tree.root, 2)
+puts "BFS: "
+bst_tree.BFS(bst_tree.root)
 ```
 
 *Results:*
 ```
-0
-false
+BFS: 
+Level: 0
+Node with value: 4
+Level: 1
+Node with value: 2
+Node with value: 12
+Level: 2
+Node with value: 0
+Node with value: 6
+Level: 3
+Node with value: 1
 ```
+
