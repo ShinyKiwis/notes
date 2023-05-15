@@ -66,3 +66,18 @@ p merge_sort(arr)
 *Results:* `[-5, -2, 0, 1, 2, 3, 3, 4, 7, 8, 9, 12, 23]`
 
 ## Explain the time complexity
+Question 1: With the array of length `n`, how many times can we split them ? (Assuming n is even, for better math reasoning)
+```ruby 
+n = 4: arr = [3,2,1,4]
+
+n = 2: arr = [3,2] and arr = [1,4]
+
+n = 1: arr = [3] and arr = [2] and arr = [1] and arr = [4]
+```
+So you can see, with length `n`, we will keep dividing the number by 2 until it reachs number 1. 
+
+The overall equation is: $n/2^x = 1$. With some knowledge of calculus, we can easily find the complexity for dividing into halves is **O(logn)**.
+
+For tracking two halves, we use two pointers and iterate through elements, so the time complexity for this is **O(n)**
+
+=> Overall time complexity: **O(nlogn)** 
