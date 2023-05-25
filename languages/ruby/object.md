@@ -28,7 +28,7 @@ obj.talk
 
 Voila, our object can talk now!
 
-Let's have a closer look, with `obj.talk`, the object `obj` unstands, or **respons to**, the message `talk`. An object is said to respond to a message if the object has a method defined whose name corresponds to the message. 
+Let's have a closer look, with `obj.talk`, the object `obj` unstands, or **respond to**, the message `talk`. An object is said to respond to a message if the object has a method defined whose name corresponds to the message. 
 
 There are few things to consider about the dot-based message-sending syntax:
 - The dot is the message-sending operator. The message on the right is sent to the object (or receiver ) on the left
