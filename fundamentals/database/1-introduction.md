@@ -140,4 +140,5 @@ Let's have a look at each anomaly's example:
 - **Insertion Anomaly:** Suppose you have a database table to store customer orders, and one of the columns represents the customer's shipping address. If a new customer places an order, but they don't have a shipping address yet, you might be required to add a null or default value for the address, which can lead to inconsistency.
 - **Deletion Anomaly:** Imagine a database table that contains information about courses and students enrolled in each course. If you delete a course record, but that course is the only one taken by a specific student, you might unintentionally delete the student's information as well.
 
-Notes for tomorrow: add more resource with exmple here, youtube video urls maybe ?
+For more example, visit the following links:
+- [Database Anomalies](https://www.scaler.com/topics/anomalies-in-dbms/) 
