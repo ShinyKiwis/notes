@@ -34,7 +34,7 @@ The exponent is 11 bit long, meaning its lowest value is 0, its highest value is
 
 >Why do we have 1023 for the exponent ?
 
-In case you are student from Bach Khoa university and attended the class of Mr.Phung in PPL, you know that with n-bias for exponent we will have the formula as follow:
+In case you are student from Bach Khoa university and attended the class of Dr.Phung in PPL, you know that with n-bias for exponent we will have the formula as follow:
 <center>
   
 $2^{n-1}-1$
