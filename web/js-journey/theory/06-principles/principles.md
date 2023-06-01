@@ -7,7 +7,7 @@ Link to the slides of the courses:
 - [Slides](https://static.frontendmasters.com/resources/2019-09-18-javascript-hard-parts-v2/javascript-hard-parts-v2.pdf) 
 ## Thread of Execution
 When JavaScript code runs, it does 2 things:
-- Goes through the code line by line and runs/executes each line - known as the thread of execution 
+- Goes through the code line by line and runs/executes each line - known as **the thread of execution** 
 - Saves 'data' like strings and arrays so we can use that data later (even functions) - in its memory
 
 Let's consider the following code 
@@ -63,7 +63,7 @@ Alright, small wake-up question, for `inputNumber:3`, what is the name for `inpu
 
 What happen at final line, `return result` ?
 It does 3 things:
-- Evaluate the return expression, if a variable try to get it value from the memory (Local->Global)
+- Evaluate the return expression, if a variable try to get its value from the memory (Local->Global)
 - Stop the execution of the function
 -  Execution resumes at where the function was called (*)
 
