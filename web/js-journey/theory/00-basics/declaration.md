@@ -1,3 +1,6 @@
+**Table of contents** 
+${toc}
+
 # Declarations 
 ## Basics 
 There are three way to declare a variable in JS:
@@ -114,6 +117,19 @@ let, var, and const are three ways to declare variables in JavaScript. The main 
         They cannot be reassigned or redeclared within their scope.
         However, it's important to note that const does not make a variable immutable - it only prevents reassignment of the variable itself. 
         If the variable is an object or an array, its properties or elements can still be modified.
+
+## Implicitly Variable Declaration 
+There are cases when variables are assigned values without declaration, JavaScript will implicitly declares those variables for us. However, that variables are always created as global variables.
+
+For example:
+
+```js 
+function x() {
+  a = 23;
+}
+x()
+console.log(a) // 23
+```
 
 ## Hoisting 
 > Hoisting is a mechanism where variables and function declarations are moved to the top of their scope before code execution.
