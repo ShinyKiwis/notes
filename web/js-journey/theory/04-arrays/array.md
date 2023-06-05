@@ -14,7 +14,7 @@ A deep copy of an object is a copy whose properties do not share the same refere
 
 So let's have a look at an example of this at file `copy.js`
 
-```javascript
+```javascript 
 const fruits = ['strawberry', 'mango', 'apple', 'grapes']
 
 const fruitsCopy = [...fruits]
@@ -26,6 +26,12 @@ console.log(fruits)
 console.log(fruitsCopy)
 ```
 
+*Results:*
+```
+[ 'strawberry', 'mango', 'apple', 'grapes' ]
+[ 'strawberry', 'mango', 'apple', 'grapes', 'pear', 'oranges' ]
+```
+
 I have extract the code from the file to explain why the modification of copy array doesn't affect the original one!
 For the case of `fruits` array, it contains multiple primitive values, since primitive values are immutable. When you create a copy of an array that contains primitive values using the spread operator, the values in the original array are also copied by value. This means that a copy of each value in the original array is made and placed into the new array. Since each value is copied by value, any changes made to the values in the copied array do not affect the original array.
 
@@ -35,6 +41,7 @@ What about array of objects ?
 const array_of_objects = [{name: 'meo'}, {name: 'dem'}]
 
 const copy = [...array_of_objects]
+// Create new object here
 copy[0] = {name: 'YAY'}
 
 console.log(copy)
@@ -43,6 +50,14 @@ console.log(array_of_objects)
 copy[0].name = "zen"
 console.log(copy)
 console.log(array_of_objects)
+```
+
+*Results:*
+```
+[ { name: 'YAY' }, { name: 'dem' } ]
+[ { name: 'meo' }, { name: 'dem' } ]
+[ { name: 'zen' }, { name: 'dem' } ]
+[ { name: 'meo' }, { name: 'dem' } ]
 ```
 
 As you see changing the first object by assigning a new one doesn't affect the original array, because it is a new object not the old one. That is why changing the property `name` won't affect the original array also. That is simply because they are not **referecing** to the same object anymore.
@@ -67,6 +82,8 @@ console.log(ingredients_list[1].list);
 // Array(3) [ "eggs", "flour", "water" ]
 ```
 
+*Results:* `[ 'eggs', 'flour', 'water' ]`
+
 ### Copying methods and mutating methods
 > This section reviews what we have discussed above
 
@@ -85,19 +102,26 @@ There are a lot of operations on `Array` object in JavaScript, listing them here
 
 Let's see what happen with following snippet:
 ```javascript
+{
 const abcArray = ['a','b', 'c']
 abcArray[1] = 'd'
 console.log(abcArray) // ['a', 'd', 'c']
+}
+
 const abcArray = ['a','b', 'c']
 abcArray[1] = 'd'
 console.log(abcArray)
 
 const abcString = 'abc'
 abcString[1] = 'd'
-console.log(abcString)
-const abcString = 'abc'
-abcString[1] = 'd'
 console.log(abcString) // 'abc'
+```
+
+*Results:*
+```
+[ 'a', 'd', 'c' ]
+[ 'a', 'd', 'c' ]
+abc
 ```
 
 Run the code, you will see that the modification in string won't do anything, because:
@@ -112,7 +136,7 @@ const numbers1 = [1,2,3]
 numbers1.push(4)
 
 const numbers2 = [1,2,3]
-const result2 = numbers.concat([4])
+const result2 = numbers2.concat([4])
 ```
 
 Although the final result is an array with 4 elements `[1,2,3,4]`, but they are not the same.

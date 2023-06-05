@@ -209,7 +209,7 @@ Let' continue your program
 | Code                                     | Global Memory                                  |
 |------------------------------------------|------------------------------------------------|
 | Line 1: function outer...                | outer: ->F->                                   |
-| Next line: const myNewFunction = outer() | myNewFunction: ->F->(A) and [**counter : 1** ] |
+| Next line: const myNewFunction = outer() | myNewFunction: ->F->(A) and [**counter : 2** ] |
 | Next line: myNewFunction()               |                                                |
 | Next line: myNewFunction()               |                                                |
 
@@ -219,11 +219,9 @@ So, here is what happened technically.
 
 When declaring the function `myNewFunction` inside the function `outer`, there is a hidden property `[[scope]]` returned with the definition of `myNewFunction` function. This property allow JavaScript to use that property and get to the local data of that execution context.
 
-And if you have been noticing, remember the defintion about block scoping ?
+And if you have been noticing, remember the definition about block scoping ?
 
 > "The scope of a variable is determined by its location within the code's structure, and it remains fixed during the execution of the program."
-
-We have something can be consider as **private data**, interesting huh ?
 
 ## Question and Answers
 This part is question asked by people attend the workshop offline from FrontendMaster.

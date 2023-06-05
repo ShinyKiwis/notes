@@ -8,7 +8,7 @@ fruitsCopy.push("oranges")
 console.log(fruits)
 console.log(fruitsCopy)
 
-// Why shallow copies in this situation doesn't affect the original array ?
+// Why shallow copies in this above situation doesn't affect the original array ?
 
 const array_of_objects = [{name: 'meo'}, {name: 'dem'}]
 
