@@ -2,11 +2,11 @@
 ## Definition
 All types except **Object** define immutable values represented directly at the lowest level of the language. We refer to values of these types as primitive values.
 
-=> In Javascript, primitive values are IMMUTABLE by default, once a primitive value is created, it cannot be changed, although the variable that holds it ay be reassigned another value.
+=> In Javascript, primitive values are IMMUTABLE by default, once a primitive value is created, it cannot be changed, although the variable that holds it may be reassigned another value.
 
 By contrast, **Object** and **arrays** are mutable by default, their properties and elements can be changed without reassigning a new value.
 
-All primitive types, except ```null```, can be tested by the typeof operator. ```typeof```null returns "object", so one has to use === null to test for null.
+All primitive types, except ```null```, can be tested by the typeof operator. ```typeof``` null returns "object", so one has to use === null to test for null.
 
 ```javascript
 console.log(typeof null) // Return 'object'
@@ -23,14 +23,14 @@ All primitive types, except ```null``` and ```undefined```, have their correspon
 let str = 'hello'
 console.log(str.toUpperCase()) // HELLO
 str.someProperty = 1 
-console.loG(str.someProperty) // undefined
+console.log(str.someProperty) // undefined
 
 // Answer: If you try to access properties or set a new property on a string primitive type, 
 // javascript will create a temporary object wrapper implicitly on it 
 // using String constructor function
 
 ```
-## Table of primtive data type ( 7 types )
+## Table of primitive data type ( 7 types )
 <center>
 
 | Type      	| typeof return value 	| Object wrapper 	|
@@ -51,7 +51,7 @@ The Null type is inhabited by exactly one value: null.
 ### Undefined
 The Undefined type is inhabited by exactly one value: undefined.
 
-Conceptually, ```undefined``` indicates the absence of a value while ```null``` indicates the absence of an object (which could also make up an excuse for ```typeof null === "object")```. The language usually defaults to undefined when something is devoid of a value:
+Conceptually, ```undefined``` indicates the absence of a value while ```null``` indicates the absence of an object (which could also make up an excuse for ```typeof null === "object"```). The language usually defaults to undefined when something is devoid of a value:
 - A return statement with no value (return;) implicitly returns undefined
 - Accessing a nonexistent object property (obj.iDontExist) returns undefined.
 - A variable declaration without initialization (let x;) implicitly initializes the variable to undefined.

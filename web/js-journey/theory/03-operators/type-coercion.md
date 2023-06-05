@@ -1,6 +1,6 @@
 # Type coercion
 Before talking about type coercion in JavaScript, let's talk about it first.
-JavaScript is a dynamic language with dynamic types and also a weakly typed language. Hold on mate, you just talk about 2 terminology at same time! (Forget the part JavaScript is a dynamic langauge, that is not what we are worrying about).
+JavaScript is a dynamic language with dynamic types and also a weakly typed language. Hold on mate, you just talk about 2 terminology at same time! (Forget the part JavaScript is a dynamic language, that is not what we are worrying about).
 Alright, let's break it down:
 ### Dynamic types
 Variables in JavaScript are not directly associated with any particular value type, and any variable can be assigned (and re-assigned) values of all types:
@@ -87,7 +87,7 @@ There is not so much to say about this, but one thing worth noticing is `Symbol`
 ### Boolean coercion
 
 #### Explicitly conversion
-Just apply `Number()` function.
+Just apply `Boolean()` function.
 #### Implicitly conversion
 Implicit conversion happens in logical context, or is triggered by logical operators ( `||`, `&&`, `!`) .
 
@@ -120,7 +120,7 @@ When it comes to objects, the engine will do 2 processes:
 
 And there is just still 3 types: numeric, boolean and string.
 
-The simplest cast is boolean conversion: any non-primitive value is always coercedto `true`, no matter if an object or an array is empty or not.
+The simplest cast is boolean conversion: any non-primitive value is always coerced to `true`, no matter if an object or an array is empty or not.
 
 Objects are converted to primitives via the internal [[ToPrimitive]] method, which is responsible for both numeric and string conversion.
 
@@ -204,7 +204,7 @@ The unary `+` has the higher precedence so `+ "bar"` will be converted to number
 ```
 **Explanation**:
 ```
-~ 0 == NaN
+~ NaN == 0
 ~ false
 ```
 #### Example 9

@@ -26,11 +26,11 @@ The addition operator (+) is overloaded for two distinct operations: numeric add
 
 - If one side is a string, the other operand is also converted to a string and they are concatenated
 - If they are both BigInts, BigInt addition is performed. If one side is a BigInt but the other is not, a TypeError is thrown
-- Otherwise, both sides are converted to numbers, and numeric addition is performe
+- Otherwise, both sides are converted to numbers, and numeric addition is performed
 
 ## Logical operator  (&&, ||)
 ### Logical AND 
-This operator evaluates from left to right, returning immediately with the value of first `falsy` operand it encounters. If all values are `truthy`, retur the last operand's value
+This operator evaluates from left to right, returning immediately with the value of first `falsy` operand it encounters. If all values are `truthy`, return the last operand's value
 
 If a value can be converted to `true`, the value is so-called `truthy`. If a vale can be converted to `false`, the value is so-called `falsy`.
 

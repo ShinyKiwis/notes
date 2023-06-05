@@ -32,7 +32,7 @@ Numeric conversion does not happen. null equals only to null or undefined, and d
 ## Question 6
 How to check if something is not `NaN`
 
-Use `Number.isNaN()`
+Use `Number.isNaN()` or globally `isNaN()`
 
 ## Question 7
 List all the falsy values.

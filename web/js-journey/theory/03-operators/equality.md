@@ -1,7 +1,7 @@
 # Strict comparision vs loosey-goosey 
 > This is just a fun name to remember not a technical name
 ## Strict Equality
-First of all, this operator checks whether two operands are equal and return a `Boolean` reslt. Unlike, equality operator, the strict equality operator always consider the operands of different types.
+First of all, this operator checks whether two operands are equal and return a `Boolean` result. Unlike, equality operator, the strict equality operator always consider the operands of different types.
 
 Let's have a look at some examples:
 ```javascript
