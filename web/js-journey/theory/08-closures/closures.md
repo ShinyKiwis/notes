@@ -112,7 +112,7 @@ Back to **local memory of outer()**, aha, there it is!.
 
 | Code                                    | Local Memory            |
 |-----------------------------------------|-------------------------|
-| Line 1: let counter = 0                 | counter: 1              |
+| Line 1: let counter = 0                 | **counter: 1**          |
 | Line 2: function incrementCounter...    | incrementCounter: ->F-> |
 | Next line: Execute the incrementCounter |                         |
 
@@ -241,3 +241,22 @@ Another question:
 Due to optimization in some engine, it might be implemented that if something is never referenced, so just don't put it into the "backpack" => So we can't access that variable anymore, maybe lead to a "memory leak".
 
 ## What is the technical term of "backpack" ?
+According to the book "If Hemingway Wrote JavaScript", the author call the backpack as "closed over variable environment" (COVE), the **local memory** is known as variable environment and it is closed and pull out to use later like in our example. 
+
+So what is the attribute of this backpack's data ? 
+- Persistent (They are not deleted)
+- Lexical
+- Scope 
+- Reference 
+- Data (Yes, they are data )
+
+=> P.L.S.R.D 
+
+> Scope: A rules for any programming language, for at any given line of code, what data do I have available to me ?
+
+JavaScript scope rules is **lexical scope** or **static scoping** doesn't depend on where it was run (that is dynamic scope), but instead pull the data out and attached into the backpack with returned function definition. 
+
+And yes, people call it **closure**, COVE, backpack 
+
+## Multiple Closure Instances
+In case, we create multiple closure or backpack, they are all independent since they are created from different execution context.
