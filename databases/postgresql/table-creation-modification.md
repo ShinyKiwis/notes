@@ -16,14 +16,7 @@ There are two things, I want to take notes here:
 - `GENERATED ALWAYS AS IDENTITY`: When inserting or deleting the table records, this field will be updated/created automatically by the DBMS
 
 ## Table Modification
-### Table Insertion
-To insert something, we will use `INSERT INTO`. 
-
-For example:
-```sql
-INSERT INTO ingredients (title) VALUES ('pepper');
-```
-### Table Deletion 
+### Table Drop (Delete Table)
 Simply drop it, however please becareful when doing this.
 ```sql 
 DROP TABLE <table-name>;

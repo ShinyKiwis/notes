@@ -46,5 +46,5 @@ Simply choose the option to `register a server`, one thing to note is for the fi
 ## How to launch into the `postgres` container 
 Simply use `docker exec`:
 ```bash
-docker exec -it <container-name> -u <user> <database-name>
+docker exec -it <container-name> psql -u <user> <database-name>
 ```
