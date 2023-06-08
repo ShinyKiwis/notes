@@ -47,7 +47,7 @@ copy[0] = {name: 'YAY'}
 console.log(copy)
 console.log(array_of_objects)
 
-copy[0].name = "zen"
+copy[1].name = "zen"
 console.log(copy)
 console.log(array_of_objects)
 ```
@@ -56,8 +56,8 @@ console.log(array_of_objects)
 ```
 [ { name: 'YAY' }, { name: 'dem' } ]
 [ { name: 'meo' }, { name: 'dem' } ]
-[ { name: 'zen' }, { name: 'dem' } ]
-[ { name: 'meo' }, { name: 'dem' } ]
+[ { name: 'YAY' }, { name: 'zen' } ]
+[ { name: 'meo' }, { name: 'zen' } ]
 ```
 
 As you see changing the first object by assigning a new one doesn't affect the original array, because it is a new object not the old one. That is why changing the property `name` won't affect the original array also. That is simply because they are not **referecing** to the same object anymore.
