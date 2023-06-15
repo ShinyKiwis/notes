@@ -1,5 +1,6 @@
 **Table of contents** 
-${toc}
+<!-- ${toc} -->
+
 # Functions 
 ## Why we need function ?
 Without function, for a specific feature like squaring a number like 1,5,120,25, we have to create code for it multiple times. Welp, that is just a simple feature but for more complex feature, imagine how messy our code will be.

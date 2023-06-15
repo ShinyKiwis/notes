@@ -1,5 +1,21 @@
 **Table of contents** 
-${toc}
+<!-- For nvim: uncomment following line -->
+<!-- ${toc} -->
+
+<!-- For vscode: Table of Contents -->
+- [Closures](#closures)
+  - [Definition](#definition)
+  - [Usage](#usage)
+  - [Functions with memories](#functions-with-memories)
+  - [Nested Function Scope](#nested-function-scope)
+    - [Example](#example)
+    - [Lexical Scope](#lexical-scope)
+  - [Retained Function Memory](#retained-function-memory)
+  - [Function Closure](#function-closure)
+  - [Question and Answers](#question-and-answers)
+  - [What is the technical term of "backpack" ?](#what-is-the-technical-term-of-backpack-)
+  - [Multiple Closure Instances](#multiple-closure-instances)
+
 
 # Closures
 Closure is the most esoteric of JavaScript concepts
