@@ -3,6 +3,11 @@ This is my notes from the book called "The Well-Grounded Rubyist"
 
 Cheatsheet: cheatsheet.md
 
+Special notes:
+
+These notes have their name begins with special character @, contains information which couldn't 
+be categorized.
+
 Additional notes: 
 1. cheatsheet.md 
 2. print.md
