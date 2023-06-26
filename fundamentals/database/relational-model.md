@@ -164,7 +164,7 @@ The price of one delicious Girl Scout cookie can determine the price of a box of
 
 $(CookiePrice,Quantity) -> BoxPrice$
 
-The attribute (or attributes) that we use as the starting point ( on the left side of the equaiton ) is called a **determinant**. Since we can use them to determine the value of the value on the right.
+The attribute (or attributes) that we use as the starting point ( on the left side of the equation ) is called a **determinant**. Since we can use them to determine the value of the value on the right.
 
 ### Candidate/Primary Keys and Functional Dependency
 By definition, a candidate key of a relation will functionally determine all other non-key attributes in the row. Likewise, by definition, a primary key of a relation will functionally determine all other non-key attributes in the row also.

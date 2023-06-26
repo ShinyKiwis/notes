@@ -37,7 +37,7 @@ For example, a list of projects may include project manager information (name, i
 | Dan             | 3          | 0x7270          | Os upgrade   | 102        | 01 May 2023 | $12000 |
 
 ### Modication issues
-There two problems cause problems for modification:
+There are three problems for modification:
 - Deletion problems 
 - Update problems 
 - Insertion problems 
