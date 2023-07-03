@@ -1,6 +1,7 @@
 **Table of contents** 
 ${toc}
 
+> This note contains anything you think it will be dynamic xD
 # Dynamic Title 
 ## Problem
 In Rails, there is one main file call `application.html.erb` in `views/layouts`,
