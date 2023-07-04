@@ -122,12 +122,15 @@ end
 obj = MyClass.new 
 p obj.class
 p obj.instance_variables
+obj.my_method
+p obj.instance_variables
 ```
 
 *Results:*
 ```
 MyClass
 []
+[:@v]
 ```
 
 For `obj`, what does it contains ?
@@ -142,4 +145,124 @@ As you can see with the above code block, we haven't call the method `my_medthod
 #### Methods 
 Besides having instance variables, objects also have methods. Like instance variables, we can use `Object#methods()`, to get a list of an object's methods. 
 
+Most objects inherit a number of methods from `Object`, so the list of methods is usually quite long!
 
+If we could `Pry` open the Ruby interpreter and look into an object, we would notice that object doesn't really carry a list of methods.On the other hand, an object simply contains:
+- Its instance variables
+- Reference to its class 
+- A unique identifier (returned by `Object#object_id`)
+
+> I will show you how to view these three things
+
+```ruby
+class Person
+  attr_accessor :name, :age
+
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+end
+
+# Create an instance of the Person class
+person = Person.new("John", 30)
+
+# Pause the execution and start the Pry session
+binding.pry
+
+# In Pry session, try to print person object
+```
+
+Here is the result:
+
+```bash
+<Person:0x000056451bf460d0 @age=30, @name="John">
+```
+
+As you can see, the `person` object has instance variables, a reference to class `Person` and finally the unique identifier, below is the summary of object, instance variables and methods in class.
+
+![Variables Explaining](../images/variables_contain.png) 
+
+So when talking about methods, to remove the ambiguity, we should say that some method is an **instance method** of a class meaning that it's defined in that class and we actually need an instance of that class to call it.
+
+When we talk about object, just use method! With this "convention", we won't get confused when writing introspective code like this:
+
+```ruby
+puts String.instance_methods == "abc".methods
+puts String.methods == "abc".methods
+```
+
+*Results:*
+```
+true
+false
+```
+
+Wrap it up: 
+- An object's instance variables live in the object itself 
+- An object's method live in the object's class 
+
+=> That's why objects of the same class share methods but don't share instance variables.
+
+### Classes in Ruby are just objects
+> Classes themselves are nothing but objects!
+
+Since a class is an object, everything that applies to objects also applies to classes. Classes, like any object, have their own class, as instances of a class called `Class`
+
+```ruby
+puts "hello".class 
+puts String.class
+```
+
+*Results:*
+```
+String
+Class
+```
+
+The methods of an object are also the instance methods of its class. This means that the methods of a class are the instance methods of `Class`.
+
+Let's see what are they!
+
+```ruby
+inherited = false 
+puts Class.instance_methods(inherited)
+```
+
+*Results:*
+```
+allocate
+superclass
+new
+```
+
+`new()` is used to create new instance, `allocate()` plays a support role to `new()`. `superclass()` do exactly what the name suggest.
+
+All classes ultimately inherit from `Object`, which in turn inherits from `BasicObject`, the root of Ruby class hierarchy. Wanna guess the superclass of `Class` ?
+
+```ruby
+puts Class.superclass
+puts Module.superclass
+```
+
+*Results:*
+```
+Module
+Object
+```
+
+Here is the summary of the hierarchy:
+
+![Class hierarchy](../images/superclass.png) 
+
+Alright, lots of interesting theory, one final piece, when creating new instance of a class such as:
+
+```ruby
+class MyClass; end 
+obj1 = MyClass.new
+
+```
+
+Both `obj1` and `MyClass` are references, the only difference being that `obj1` is a variables and `MyClass` is a constant!
+
+### Constants

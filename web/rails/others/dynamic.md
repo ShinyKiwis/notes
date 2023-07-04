@@ -60,3 +60,16 @@ In `application.html.erb`:
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 </head>
 ```
+# Dynamic variable in partial
+To pass a dynamic content into a partial we can simply do as follow:
+
+In the `erb` file, we pass the second argument as the **dynamic content** we want to pass
+```erb
+<%= render 'path/to/partial', style: 'abc' %>
+```
+
+And in the actual partial file:
+
+```erb
+<img src="path/to/img" style="#{style}" />
+```
