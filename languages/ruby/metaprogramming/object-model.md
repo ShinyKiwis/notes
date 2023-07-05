@@ -266,3 +266,63 @@ obj1 = MyClass.new
 Both `obj1` and `MyClass` are references, the only difference being that `obj1` is a variables and `MyClass` is a constant!
 
 ### Constants
+
+Any references that begins with an uppercase letter, including the names of classes and modules, is a constant. The **scope** of constants follows its own rules.
+
+For example:
+
+```ruby
+module MyModule
+    MyConstant = 'Outer constant'
+    class MyClass
+        MyConstant = 'Inner constant'
+    end
+end
+
+puts MyModule::MyConstant
+puts MyModule::MyClass::MyConstant
+```
+
+*Results:*
+```
+Outer constant
+Inner constant
+```
+
+All the constants in a program are arranged in a tree hierarchy similiar to a file system, where modules and classes are directories and regular constants are files. Just like file system, files can have same name if they live in different directories.
+
+![Constants](../images/constant.png) 
+
+We can refer to a constant by its **path**, look at above example. 
+
+The similiarities between Ruby constants and files go even further, we can use **modules to organize our constants**, the same way we use directories to organize our files!
+
+For example, we can have a look at how Rake handling their constants, `Task` and `FileTask` using module `Rake`.
+
+### Small Quiz
+```ruby
+class MyClass; end 
+obj1 = MyClass.new
+obj1 = MyClass.new
+```
+
+1. What's the class of `Object` ?
+> Class
+
+2. What's the superclass of `Module` ?
+> Object
+
+3. What's the class of `Class` ?
+> Class
+
+4. Image that we execute this code:
+```ruby
+obj3 = MyClass.new
+obj3.instance_variable_set('@x', 10)
+```
+
+Can we add `obj3` to the diagram ?
+> Yes we can!
+
+![Quiz Resukt](../images/quiz.png) 
+
