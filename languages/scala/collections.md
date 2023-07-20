@@ -224,6 +224,66 @@ actually mostly the same data structure:
 
 Downside of link lists lies in the search operation is a slow operation with *O(n)*.
 
+## Mutable Collections
+Mutable collections are in general faster than their immutable counterparts when used for **in-place** operations. However, mutability
+comes at cost: 
+- Need much more careful sharing them between different parts of the program
+- Easy to create bugs where a shared mutable collection is updated unexpectedly
+
+A common approach: use mutable collections locally within a function or private to a class where there is a performance bottleneck,
+rest for 
+### Mutable ArrayDeques
+`ArrayDeques` are general-purpose mutable, linear collections that provides:
+- O(1) index lookups
+- O(1) index updates
+- O(1) index insertion at both left,right
+- O(1) index removal at both left,right
+
+```scala
+val myArrayDeque = collection.mutable.ArrayDeque(1,2,3,4,5)
+myArrayDeque.removeHead()
+myArrayDeque.append(6)
+myArrayDeque.removeHead()
+```
+
+`ArrayDeque`s are implemented as a circular buffer, with pointers to the logical start and end of the
+collection within the buffer. The operations above can be visualized as follows, from left to right:
+
+![ArrayDeque illustration](./images/arraydeque.png) 
+
+An ArrayDeque tries to re-use the same underlying Array as much as possible, only moving the start and
+end pointers around as elements get added or removed from either end. Only if the total number of elements grows beyond the current capacity does the underlying Array get re-allocated, and the size is
+increased by a fix multiple to keep the amortized cost of this re-allocation small.
+
+As a result, operations on an `ArrayDeque` are much faster than the equivalent operations on an immutable `Vector`, which has to allocate *O(log n)* new tree nodes for every operation we perform.
+
+#### Usages
+- An `Array` that can grow: 
+  - an `Array.newBuilder` doesn't allow indexed lookup or modification while the array is being built
+  - an `Array` doesn't allow adding more elements 
+  - `ArrayDeque` can do both
+- A faster, mutable alternative to immutable `Vector`, if we find adding/removing items from either
+end using :+ / +: or . tail / . init is a bottleneck in your code. Appending and prepending to
+ArrayDeque s is much faster than the equivalent Vector operations`
+- A FIFO Queue, by inserting items to the right via `.append` and remove items via `.removeHead`
+- A FILO Stack, by inserting items to the right via `.append` and remove items via `.removeLast`
+
+If we want to `freeze` a mutable `ArrayDeque` into an immutable `Vector`, use `.to(Vector)` 
+
+> Note that this makes a copy of the entire collection
+### Mutable Sets
+The Scala standard library provides mutable `Set`s as a counterpart to the immutable `Set`s we saw earlier. Mutable sets also provide efficient `.contains` check (O(1)), but instead of constructing new copies of `Set` via `+` and `-`, we instead add and remove elements via:
+- `.add`
+- `.remove`
+
+### Mutable Maps 
+Mutable Map s are again just like immutable `Map`s, but allow you to mutate the Map by adding or removing key-value pairs.
+
+> Mutable Map s have a convenient getOrElseUpdate function, that allows you to look up a value by key, and compute/store the value if there isn't one already present
+
+## Data types hierarchy for collections
+![data type hierarchy](./images/type_hierarchy.png) 
+
 # Additional Information
 ## Parameterize arrays with types
 > Parameterization means 'configuring' an instance when we create it. 
