@@ -1,4 +1,4 @@
-**Table of contents** 
+**Table of contets** 
 ${toc}
 
 # Collections in Scala
@@ -288,7 +288,8 @@ Mutable Map s are again just like immutable `Map`s, but allow you to mutate the 
 ## Parameterize arrays with types
 > Parameterization means 'configuring' an instance when we create it. 
 
-In other words, we parameterize an instance with values by passing objects to a constructor in parentheses.
+In other words, we parameterize an instance with values by passing objects to a constructor in parentheses. We can also parameterize an instance with types 
+by specifying one or more types in square brackets such as in the `Array[String]` of the following example
 
 ```scala 
 val greetStrings = new Array[String](3)
